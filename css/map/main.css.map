@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAAA,EACE,SAAU,CACX,YAGC,aACA,aAAc,CAFhB,yBAII,WACA,YACA,kBAAmB,CACpB","file":"main.css","sourcesContent":["p{\r\n  color:red;\r\n}\r\n\r\n.pb_content{\r\n  width:1305px;\r\n  margin:0 auto;\r\n  .content_top{\r\n    width:100%;\r\n    height:56px;\r\n    background:#606060;\r\n  }\r\n}"],"sourceRoot":"/source/"}
