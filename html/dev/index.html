@@ -9,16 +9,94 @@
     <link href="../../css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
-<!--<div class="pb_header">
-
-</div>-->
-<div class="pb_content">
-    <div class="content_top"></div>
-
+<div class="pb_header">
+    <span class="toolbar_icon">Cruise</span>
+    <p>Signed as <a><u>Member</u></a><img src="../../images/arrow.png"/><a><u>Sign Out</u></a></p>
+    <ul>
+        <li class="tab_inner">DASHBOARD</li>
+        <li class="tab_inner">MY_CRUISE</li>
+        <li class="tab_inner">AGENTS</li>
+        <li class="tab_inner">HELP</li>
+    </ul>
+</div>
+<div class="pb_content" id="pb_content">
+    <div class="content_top">
+        <ul>
+            <li class="item">
+                <span id="fff">Agents</span>
+            </li>
+            <li class="item">
+                <button>All</button>
+            </li>
+            <li class="item">
+                <button class="bg_button">Physical</button>
+            </li>
+            <li class="item">
+                <button>Virtual</button>
+            </li>
+        </ul>
+    </div>
+    <div class="content_left">
+        <div class="nav_list" :class="{'bg_set':item.type == 'building'}" v-for="item in $data.dataList">
+            <div class="circle"></div>
+            <ul class="nav_rt">
+                <li class="every_line">
+                    <strong>{{item.website}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <em>|</em>
+                    <strong>{{item.type}}</strong>
+                    <em>|</em>
+                    <strong>{{item.ip}}</strong>
+                    <em>|</em>
+                    <strong>{{item.route}}</strong>
+                </li>
+                <li class="every_line">
+                    <span @click="addResource($index)"><em>+</em><u>Specify Resource</u></span>
+                    <em>|</em>
+                    <span>Resources:</span>
+                    <span class="nav_s" v-for="childItem in item.resources">{{childItem}}<img @click="deleteRes(item.index,  $index)"/></span>
+                    <u class="rt" :class="{'hidden':item.type == 'building'}">Deny</u>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content_right">
+        <div class="rt_title">
+            <h3>Summary</h3>
+        </div>
+        <table class="tr_tab">
+            <tr>
+                <td>building</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>idle</td>
+                <td>2</td>
+            </tr>
+        </table>
+        <div class="rt_title">
+            <h3>History</h3>
+        </div>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+        <p>bjstdmngbgr02/Acceptance_test</p>
+    </div>
+    <div class="add_box" :class="{'hidden':$data.flag == 0}">
+        <h3>(separate multiple resources name with commas)</h3>
+        <input type="text" v-model="ipMessage"/><br/>
+        <button @click="add()">Add resources</button>
+        <button @click="close()">Close</button>
+    </div>
 </div>
 <div class="pb_footer">
-
+    Copyright:Thoughtworks Inc.
 </div>
+<script type="text/javascript" data-main="../../js/dev/index" src="../../js/lib/requirejs/require.min.js"></script>
 </body>
 </html>
